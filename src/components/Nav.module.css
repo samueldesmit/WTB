@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    z-index: 100;
+
+}
+
+.navBar {
+    display: flex;
+    gap: 40px;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 75px;
+}
+
+.navUl {
+    display: flex;
+    gap: 15px;
+    list-style: none;
+}
+
+.navLink {
+    border-bottom: 1px solid transparent;
+    color: black;
+}
+
+.active {
+    border-bottom: 1px solid black;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navButton {
+    border-bottom: 1px solid transparent;
+    color: black;
+    width: 120px;
+    background-color: #59C3C3;
+}
+
+.navButton:hover {
+    border-bottom: 1px solid black;
+}
+
+/*a:visited {*/
+/*    text-decoration: none;*/
+/*    color: ;*/
+/*}*/

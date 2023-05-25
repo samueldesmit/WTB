@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.home {
+    background-color: #CAD2C5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    height: 100vh;
+    flex-wrap: wrap;
+    z-index: 1;
+}
+
+.beerImage1 {
+    position: absolute;
+    opacity: 0.1;
+    top: -1000px;
+    rotate: 45deg;
+    left: 2000px;
+    z-index: 0;
+    width: 200px;
+    animation: slideInRight 10s;
+
+}
+
+@keyframes  slideInRight{
+    from {
+        transform: translatey(3000px);
+    }
+    to {
+        transform: translatey(0);
+    }
+}
+
+
+.right {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.inputFields, .homeButtons {
+    margin: 20px 10px;
+    height: 40px;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+}
+
+.inputFields {
+    background-color: #CAD2C5;
+    width: 200px;
+}
+
+.inputContainer {
+    max-width: 500px;
+    background-color: #84A98C;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 10px;
+    box-shadow: 2px 5px black;
+}
+
+.homeButtons {
+    background-color: #59C3C3;
+    width: 100px;
+}
+
+.homeForm {
+    display: inline-block;
+}
+
+.explain {
+    max-width: 500px;
+    background-color: #84A98C;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 10px;
+    box-shadow: 2px 5px black;
+}
+
+.explain h2 {
+    margin: 5px 0 20px 0;
+}
+
+.explain p {
+    padding: 5px;
+}
+
+input:focus {
+    outline: 3px solid #59C3C3;
+}
+
+button:focus {
+    outline: 3px solid #CAD2C5
+
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+
+

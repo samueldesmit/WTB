@@ -1,25 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from "./pages/home/Home";
+import Nav from "./components/Nav";
+import Login from "./pages/login/Login";
+import About from "./pages/about/About";
+import {Navigate, Route, Routes} from "react-router-dom";
+import NotFoundPage from "./pages/notfoud/NotFoundPage";
+import {useContext} from "react";
+import {AuthContext} from "./context/AuthContext";
+import Profile from "./pages/profile/Profile";
+import Register from "./pages/register/Register";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    const { isAuthenticated } = useContext(AuthContext);
+
+    return (
+        <>
+            <Nav />
+                <Routes>
+                    <Route path="login" element={<Login/>}/>
+                    <Route path="about" element={<About/>}/>
+                    <Route path="profile" element={ isAuthenticated ? <Profile/> : <Navigate to="/login"/>}/>
+                    <Route path="*" element={<NotFoundPage/>}/>
+                    <Route path="register" element={<Register/>}/>
+                    <Route path="/" element={ isAuthenticated ? <Home/> : <Navigate to="/login"/>}/>
+                </Routes>
+        </>
+    );
 }
 
 export default App;

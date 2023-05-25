@@ -1,0 +1,31 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+main {
+    height: 100svh;
+    background-color: #84A98C;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    max-width: 800px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: #CAD2C5;
+    border-radius: 10px;
+    padding: 40px 40px;
+    margin: 20px 20px;
+    box-shadow: 2px 5px black;
+}
+
+p {
+    margin: 40px 0;
+}
