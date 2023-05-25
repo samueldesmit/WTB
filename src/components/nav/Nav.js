@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import styles from './Nav.module.css'
 import {NavLink} from "react-router-dom";
-import {AuthContext} from "../context/AuthContext";
+import {AuthContext} from "../../context/AuthContext";
 
 function Nav() {
     const {isAuthenticated, toggleUitlog} = useContext(AuthContext);

@@ -117,17 +117,25 @@ function Home() {
                         }
 
                         {search1 === true && Object.keys(beerData).length < 1 && Object.keys(inputValueDish).length > 0 &&
-                            <p>couldn't find any thing wit {inputValueDish}. Try something like "fish", "tomato",
-                                "beef"</p>}
+                            <>
+                                <p>OW NO :( </p>
+                                <p>Couldn't find any thing with your input. Try something like fish, tomato or
+                                    beef</p>
+                            </>
+                        }
                         {Object.keys(beerData).length < 1 && Object.keys(inputValueBeer).length > 0 &&
-                            <p>couldn't find any thing wit {inputValueBeer}. Try sometehing like "IPA", "Ale",
-                                "Lager"</p>}
+                            <>
+                                <p>OW NO :( </p>
+                                <p>Couldn't find any thing with your input. Try something like IPA, Ale or
+                                    Lager </p>
+                            </>
+                        }
 
                     </div>
 
                 </div>
 
-                {Object.keys(beerData).length > 0 && beerData != undefined &&
+                {Object.keys(beerData).length > 0 &&
                     <>
                         <div className={styles.beerdiv}>
 
