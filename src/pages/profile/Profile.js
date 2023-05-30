@@ -22,7 +22,7 @@ function Profile() {
 
     return (
         <>
-            <main>
+            <main className={styles.mainProfile}>
                 <div className={styles.container}>
                     <h1>Welcome <span className={styles.username}>{user.username}</span> on your profile page</h1>
                     <p>Your username is: {user.username}</p>

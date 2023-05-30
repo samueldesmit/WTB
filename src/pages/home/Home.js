@@ -12,7 +12,8 @@ function Home() {
     const [beerThree, setBeerThree] = useState(false);
     const [search1, setSearch1] = useState(false);
     const [search2, setSearch2] = useState(false);
-
+    const [abv, setAbv] = useState(10);
+    console.log(abv)
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -31,7 +32,7 @@ function Home() {
 
     async function fetchBeerWithDish() {
         try {
-            const result = await axios.get(`https://api.punkapi.com/v2/beers?food=${inputValueDish}`);
+            const result = await axios.get(`https://api.punkapi.com/v2/beers?food=${inputValueDish}&abv_lt=${abv}`);
             console.log(result)
             setBeerData(result.data)
         } catch (e) {
@@ -41,7 +42,18 @@ function Home() {
 
     async function fetchBeerWithBeer() {
         try {
-            const result = await axios.get(`https://api.punkapi.com/v2/beers?beer_name=${inputValueBeer}`);
+            const result = await axios.get(`https://api.punkapi.com/v2/beers?beer_name=${inputValueBeer}&abv_lt=${abv}`);
+            setBeerData(result.data)
+        } catch (e) {
+            console.error(e);
+        }
+    }
+
+
+    async function fetchRandomBeer() {
+        try {
+            const result = await axios.get(`https://api.punkapi.com/v2/beers/random`);
+            console.log(result)
             setBeerData(result.data)
         } catch (e) {
             console.error(e);
@@ -54,6 +66,7 @@ function Home() {
                 <div className={styles.right}>
 
                     <div className={styles.inputContainer}>
+
                         <div>
                             <form action=""
                                   onSubmit={handleSubmit}
@@ -86,9 +99,26 @@ function Home() {
                                         className={styles.homeButtons}> Fetch beers!
                                 </button>
                             </form>
+                            <div className={styles.alc}>
+                                <p className={styles.inputAlcText}>max percentage of alcohol</p>
+                                <input type="number"
+                                       min='1'
+                                       max='20'
+                                       placeholder='10'
+                                       onChange={e => setAbv(e.target.value)}
+                                       className={styles.inputAlcNumber}/>
+                            </div>
                         </div>
+
+
                     </div>
 
+                    <div className={styles.randomButtonDiv}>
+                        <button onClick={fetchRandomBeer} className={styles.randomBeerButton}>random beer button
+                        </button>
+                        <img src="https://images.punkapi.com/v2/10.png" className={styles.beerImage2} alt="beer image 1"/>
+                        <img src="https://images.punkapi.com/v2/10.png" className={styles.beerImage3} alt="beer image 1"/>
+                    </div>
                     <div className={styles.explain}>
 
                         {Object.keys(beerData).length > 0 &&
@@ -193,16 +223,20 @@ function Home() {
                 }
             </div>
 
-            {Object.keys(beerData).length > 0 &&
+            {
+                Object.keys(beerData).length > 0 &&
                 <>
                     <img src={beerData[0].image_url} className={styles.beerImage1} alt="beer image 1"/>
                 </>
             }
-            {Object.keys(beerData).length === 0 &&
+            {
+                Object.keys(beerData).length === 0 &&
                 <>
                     <img src="https://images.punkapi.com/v2/10.png" className={styles.beerImage1} alt="beer image 1"/>
                 </>
             }
+
+
         </>
     )
 }

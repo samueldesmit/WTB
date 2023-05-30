@@ -7,11 +7,26 @@
 
 main {
     height: 100vh;
-    background-color: #84A98C;
+    background-color: #CAD2C5;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+}
+
+
+.registerContainer {
+    max-width: 800px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    text-align: center;
+    background-color: #84A98C;
+    border-radius: 10px;
+    padding: 40px 40px;
+    margin: 20px 20px;
+    box-shadow: 2px 5px black;
 }
 
 form {
@@ -23,11 +38,10 @@ form {
 }
 
 label {
-    margin: 20px;
+    margin: 10px 0 5px 0;
 }
 
 input, button {
-    margin: 0 10px;
     height: 40px;
     text-align: center;
     border-radius: 5px;
@@ -37,19 +51,32 @@ input, button {
     width: 200px;
 }
 
+
 .registerbutton {
-    margin: 20px 0 0 0;
     background-color: #59C3C3;
-    width: 500px;
+    width: 200px;
+    margin: 30px;
 }
 
-
-.standarderror {
-    color: black;
+.registerbutton:hover {
+    cursor: pointer;
 }
+
 .error {
     color: red;
     background-color: #CAD2C5;
     padding: 5px;
     border-radius: 5px;
+    margin: 10px 0;
+}
+
+
+.guideRegister {
+    color: black;
+    background-color: #CAD2C5;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin: 10px 0;
+    width: 200px;
 }
